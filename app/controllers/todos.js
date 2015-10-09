@@ -1,14 +1,21 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  model: function() {
+    var first  = {status_code: 1, project: "first"};
+    var second = {status_code: 1, project: "second"};
+    var third  = {status_code: 1, project: "third"};
+    var last   = {status_code: 2, project: "last"};
+    return [first, second, third, last];
+  }.property(),
   unassigned: function() {
-    var first = {project: "first"};
-    var second = {project: "second"};
-    var third = {project: "third"};
-    return [first, second, third];
+    return this.get("model").filter(function(model) {
+      return model.status_code === 1;
+    });
   }.property(),
   assigned: function() {
-    var last = {project: "last"};
-    return [last];
+    return this.get("model").filter(function(model) {
+      return model.status_code === 2;
+   });
   }.property()
 });
