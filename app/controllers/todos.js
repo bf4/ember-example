@@ -2,6 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   unassigned: function() {
-    return [1, 2, 3];
+    var first = {project: "first"};
+    var second = {project: "second"};
+    var third = {project: "third"};
+    return [first, second, third];
   }.property()
 });
