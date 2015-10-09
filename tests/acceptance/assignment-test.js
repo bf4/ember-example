@@ -15,9 +15,9 @@ module('Acceptance | assignment', {
 test('visiting /assignment', function(assert) {
   visit('/');
   andThen(function() {
-    var unassigned = find("table.unassigned tr.cards");
+    var unassigned = find(".unassigned .cards");
     assert.equal(unassigned.length, 3);
-    var project = find("table.unassigned tr.cards:eq(0) td.todo_project");
+    var project = find(".unassigned .cards:eq(0) .todo_project");
     assert.equal(project.text(), "first");
   });
 });
