@@ -13,9 +13,9 @@ module('Acceptance | assignment', {
 });
 
 test('visiting /assignment', function(assert) {
-  visit('/assignment');
-
+  visit('/');
   andThen(function() {
-    assert.equal(currentURL(), '/assignment');
+    var unassigned = find("table.unassigned tr.cards");
+    assert.equal(unassigned.length, 3);
   });
 });
