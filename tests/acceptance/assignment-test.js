@@ -17,5 +17,7 @@ test('visiting /assignment', function(assert) {
   andThen(function() {
     var unassigned = find("table.unassigned tr.cards");
     assert.equal(unassigned.length, 3);
+    var project = find("table.unassigned tr.cards:eq(0) td.todo_project");
+    assert.equal(project.text(), "first");
   });
 });
