@@ -6,5 +6,9 @@ export default Ember.Controller.extend({
     var second = {project: "second"};
     var third = {project: "third"};
     return [first, second, third];
+  }.property(),
+  assigned: function() {
+    var last = {project: "last"};
+    return [last];
   }.property()
 });
