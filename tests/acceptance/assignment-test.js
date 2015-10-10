@@ -39,3 +39,20 @@ test('status is shown in plain english', function(assert) {
     assert.equal(status.text(), "Assigned");
   });
 });
+
+test('clicking the assign button will move item from unassigned to assigned', function(assert) {
+  visit('/');
+  andThen(function() {
+    var assigned = find(".assigned .cards");
+    assert.equal(assigned.length, 1);
+    var unassigned = find(".unassigned .cards");
+    assert.equal(unassigned.length, 3);
+  });
+  click(".unassigned .cards:eq(0) .assign_btn");
+  andThen(function() {
+    var assigned = find(".assigned .cards");
+    assert.equal(assigned.length, 2);
+    var unassigned = find(".unassigned .cards");
+    assert.equal(unassigned.length, 2);
+  });
+});
