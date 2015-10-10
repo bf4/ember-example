@@ -10,10 +10,10 @@ export default Ember.Controller.extend({
     return this.get("model").filter(function(model) {
       return model.status_code === 1;
     });
-  }.property(),
+  }.property("model.@each.status_code"),
   assigned: function() {
     return this.get("model").filter(function(model) {
       return model.status_code === 2;
    });
-  }.property()
+  }.property("model.@each.status_code")
 });
