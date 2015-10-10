@@ -4,5 +4,5 @@ export default Ember.Object.extend({
   status: function() {
     var status_code = this.get("status_code");
     return status_code === 1 ? "Unassigned" : "Assigned";
-  }.property()
+  }.property("status_code")
 });
