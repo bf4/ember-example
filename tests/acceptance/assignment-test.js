@@ -12,7 +12,7 @@ module('Acceptance | assignment', {
   }
 });
 
-test('visiting /assignment', function(assert) {
+test('unassigned items are grouped together', function(assert) {
   visit('/');
   andThen(function() {
     var unassigned = find(".unassigned .cards");
