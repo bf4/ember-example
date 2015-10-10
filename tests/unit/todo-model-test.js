@@ -1,4 +1,5 @@
 import { module, test } from 'qunit';
+import Todo from "my-kanban-board/models/todo";
 
 module('todo');
 
