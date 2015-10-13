@@ -18,6 +18,30 @@
     {{content-for 'body'}}
 
     <script src="assets/vendor.js"></script>
+    <script>
+      var first  = {id: 1, status_code: 1, project: "first"};
+      var second = {id: 2, status_code: 1, project: "second"};
+      var third  = {id: 3, status_code: 1, project: "third"};
+      var last   = {id: 4, status_code: 2, project: "last"};
+      var json = [first, second, third, last];
+      var mockGet = function(url, content) {
+        Ember.$.fauxjax.new({
+            request: {
+                url: url,
+                method: "GET"
+            },
+            response: {
+                status: 200,
+                content: content
+            }
+        });
+      }
+      mockGet("/api/todos", json);
+      mockGet("/api/todo/1", first);
+      mockGet("/api/todo/2", second);
+      mockGet("/api/todo/3", third);
+      mockGet("/api/todo/4", last);
+    </script>
     <script src="assets/my-kanban-board.js"></script>
 
     {{content-for 'body-footer'}}
