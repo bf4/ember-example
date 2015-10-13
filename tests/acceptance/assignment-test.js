@@ -2,10 +2,10 @@ import Ember from 'ember';
 import { module, test } from 'qunit';
 import startApp from 'my-kanban-board/tests/helpers/start-app';
 
-var first  = {status_code: 1, project: "first"};
-var second = {status_code: 1, project: "second"};
-var third  = {status_code: 1, project: "third"};
-var last   = {status_code: 2, project: "last"};
+var first  = {id: 1, status_code: 1, project: "first"};
+var second = {id: 2, status_code: 1, project: "second"};
+var third  = {id: 3, status_code: 1, project: "third"};
+var last   = {id: 4, status_code: 2, project: "last"};
 var json = [first, second, third, last];
 
 module('Acceptance | assignment', {
