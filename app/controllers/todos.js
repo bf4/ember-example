@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  todos: Ember.inject.controller(),
+  isActiveRoute: Ember.computed.equal("todos.application.currentRouteName", "todos.index"),
   actions: {
     assign: function(todo) {
       todo.set("status_code", 2);
