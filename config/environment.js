@@ -15,7 +15,7 @@ module.exports = function(environment) {
     // CORS configuration for test environment
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'script-src':  "'self' 'unsafe-eval' http",
+      'script-src':  "'self' 'unsafe-eval' http 'unsafe-inline'",
       'font-src':    "'self'",
       'connect-src': "'self' *",
       'img-src':     "'self' data:",

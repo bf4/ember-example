@@ -3,7 +3,7 @@
     <div class="cards">
       <span class="todo_project">{{todo.project}}</span>
       <button {{action "assign" todo}} class="assign_btn"></button>
-      {{#link-to  "todos.todo" todo class="toggle_link"}}x{{/link-to}}
+      {{#link-to  "todos.todo" todo.id class="toggle_link"}}x{{/link-to}}
     </div>
   {{/each}}
 </div>
