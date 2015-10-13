@@ -73,3 +73,11 @@ test('clicking the assign button will move item from unassigned to assigned', fu
     assert.equal(unassigned.length, 2);
   });
 });
+
+test("clicking toggle link will show details for given item", function(assert) {
+  visit("/");
+  click(".unassigned .cards:eq(0) .toggle_link");
+  andThen(function() {
+    assert.equal(currentURL(), "/todo/1");
+  });
+});
