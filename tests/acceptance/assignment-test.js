@@ -76,6 +76,10 @@ test('clicking the assign button will move item from unassigned to assigned', fu
 
 test("clicking toggle link will show details for given item", function(assert) {
   visit("/");
+  andThen(function() {
+    var details = find(".details_section");
+    assert.ok(details.is(":hidden"));
+  });
   click(".unassigned .cards:eq(0) .toggle_link");
   andThen(function() {
     assert.equal(currentURL(), "/todo/1");
