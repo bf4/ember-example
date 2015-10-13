@@ -2,12 +2,29 @@ import Ember from 'ember';
 import { module, test } from 'qunit';
 import startApp from 'my-kanban-board/tests/helpers/start-app';
 
+var first  = {status_code: 1, project: "first"};
+var second = {status_code: 1, project: "second"};
+var third  = {status_code: 1, project: "third"};
+var last   = {status_code: 2, project: "last"};
+var json = [first, second, third, last];
+
 module('Acceptance | assignment', {
   beforeEach: function() {
     this.application = startApp();
+    return Ember.$.fauxjax.new({
+        request: {
+            url: "/api/todos",
+            method: "GET"
+        },
+        response: {
+            status: 200,
+            content: json
+        }
+    });
   },
 
   afterEach: function() {
+    Ember.$.fauxjax.clear();
     Ember.run(this.application, 'destroy');
   }
 });
